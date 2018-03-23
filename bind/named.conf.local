@@ -1,11 +1,27 @@
-//
-// Do any local configuration here
-//
+acl internals {
+    54.37.65.66;
+    54.37.65.78;
+    localhost;
+};
 
-// Consider adding the 1918 zones here, if they are not used in your
-// organization
-//include "/etc/bind/zones.rfc1918";
-zone "wt9.ephec-ti.be" IN {
-             type master;
-             file "/etc/bind/db.wt9.ephec-ti.be";
-        };
+view internal {
+    match-clients { internals; };
+    recursion yes;
+    allow-recursion { internals; };
+    forwarders {
+        8.8.8.8;
+        8.8.4.4;
+    };
+    zone "wt9.ephec-ti.be" {
+        type master;
+        file "/etc/bind/db.intranet.wt9.ephec-ti.be";
+    };
+};
+
+view external {
+    match-clients { any; };
+    zone "wt9.ephec-ti.be" {
+        type master;
+        file "/etc/bind/db.wt9.ephec-ti.be";
+    };
+};
