@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<!-- VOTRE NOM + CLASSE ici -->
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>Janvier 2014 : VOTRE NOM + CLASSE ici</title>
+  <link rel=stylesheet href=jan1415.css>  <!-- ne pas modifier -->
+  <script src=utils.js></script>           <!-- ne pas modifier -->
+  <script src=jan1415.js></script>         <!-- ICI compléter/rédiger ! -->
+</head>
+<body onload="afficherCatalogue();">
+<h1>je change le titre du tableau</h1>
+  <div id=catal> <!-- bloc gauche -->
+    <table>
+      <caption><span>Catalogue de la librairie</span></caption>    
+      <thead>
+        <tr>
+          <th class=ref>ref</th>
+          <th class=aut>auteur</th>
+          <th class=tit>titre</th>
+          <th class=prx>prix (€)</th>
+          <th class=ach> </th>
+        </tr>
+      </thead>
+      <tbody id=tbc><!-- table à remplir --></tbody>
+    </table>
+  </div> 
+  <div id=achats> <!-- bloc droit -->
+    <table>
+      <caption>Ouvrages en cours d'achat</caption>    
+      <thead>
+        <tr>
+          <th class=ref>ref</th>
+          <th class=tit>titre</th>
+          <th class=nbr>nbre</th>
+          <th class=del> </th>          
+        </tr>
+      </thead>
+      <tbody id=tba><!-- table à remplir --></tbody>
+    </table>
+    <div id=mnt>Montant de la commande (€) : <span id=tot>0.00</span></div>
+  </div>    
+</body>
+</html>  

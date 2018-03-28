@@ -1,0 +1,46 @@
+﻿body{width: 920px;
+  font-family: verdana, sans-serif;
+  font-size: 1em;}
+table{border: double black;
+  padding: 0.3em;
+  background: whitesmoke;}   
+caption{margin: 0.3em 0;
+  font-weight:bold;
+  text-align:left;}  
+tbody td{border-bottom: 1px dashed black;
+  border-right: 1px dashed black;
+  padding:0.2em;}
+th{font-style: italic;
+  font-weight:normal;
+  text-align:left;
+  padding: 0.1em 0 0.5em 0;
+  border-bottom: 1px solid black;}
+.dte{width:60px;
+  font-size: 0.7em;}
+.ref{width: 50px;
+  font-style: italic;
+  font-size:0.75em;}
+.aut{width: 60px;
+  font-size: 0.9em;
+  text-align:center;}
+.tit{width: 230px;}   
+.prx{width: 50px;
+  text-align:right;
+  font-size: 0.95em;}
+.ach input{color:blue;}  
+.del input{color:red;}
+.nbr{width: 30px;
+  text-align: right;
+  font-weight: bold;}
+#catal{float: left; margin:0.3em; width:485px;}
+#achats{margin:0.3em; width:400px;
+  float:right;
+  margin-top: 1.5em;} 
+#achats table{width: 100%;}      
+#mnt{margin-top: 1em;
+  padding:0.5em;
+  border: solid 1px black;
+  font-weight: bold;
+  text-align: right;}
+#mnt span{color:blue;
+  text-align:right;}  
