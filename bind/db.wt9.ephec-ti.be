@@ -2,8 +2,8 @@
 ; BIND data file for local loopback interface
 ; Fichier de zone
 $TTL    604800
-$ORIGIN wt9.ephec-ti.be
-@       IN      SOA ns.wt9.ephec-ti.be. root.wt9.ephec-ti.be (
+$ORIGIN wt9.ephec-ti.be.
+@       IN      SOA ns.wt9.ephec-ti.be. root.wt9.ephec-ti.be. (
                               2         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
