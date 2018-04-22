@@ -1,10 +1,34 @@
-﻿version: '3'
-services: 
-    web: 
-        image: nginx
-        volumes: 
-            - "./public:/usr/share/nginx/html"
-        ports: 
-            - "8888:80"
-        
-        
+version: '3'
+services:
+    web:
+        image: nginx:alpine
+        volumes:
+            - "./web:/var/www/html"
+            - "./etc/nginx:/etc/nginx/conf.d"
+        ports:
+            - "8000:80"
+        environment:
+            - NGINX_HOST=localhost
+        restart: always
+        depends_on:
+            - php
+            - mysqldb
+    php:
+        image: nanoninja/php-fpm:latest
+        restart: always
+        volumes:
+            - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+            - "./web:/var/www/html"
+    mysqldb:
+        image: mysql
+        container_name: mysql
+        restart: always
+        environment:
+            - MYSQL_DATABASE=test
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=dev
+            - MYSQL_PASSWORD=dev
+        ports:
+            - "8989:3306"
+        volumes:
+            - "./data/db/mysql:/var/lib/mysql"
