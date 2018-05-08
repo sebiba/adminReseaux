@@ -1,27 +1,25 @@
 acl internals {
-    54.37.65.66;
-    54.37.65.78;
     localhost;
+    54.37.65.104;
+    54.37.65.78;
 };
-
-view internal {
-    match-clients { internals; };
-    recursion yes;
-    allow-recursion { internals; };
-    forwarders {
-        8.8.8.8;
-        8.8.4.4;
-    };
-    zone "wt9.ephec-ti.be" {
-        type master;
-        file "/etc/bind/db.intranet.wt9.ephec-ti.be";
-    };
-};
-
-view external {
+view "other" {
     match-clients { any; };
     zone "wt9.ephec-ti.be" {
         type master;
         file "/etc/bind/db.wt9.ephec-ti.be";
+    };
+};
+view "trusted" {
+    match-clients {
+        internals;
+    };
+    recursion yes;
+    allow-recursion {
+        internals;
+    };
+    zone "intranet.wt9.ephec-ti.be" {
+        type master;
+        file "/etc/bind/db.internal.wt9.ephec-ti.be";
     };
 };
