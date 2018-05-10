@@ -1,0 +1,27 @@
+version : '2'
+
+services :
+  voip:
+    image: adrien97nini/wt_voip:test
+    container_name: voip
+    ports:
+      - "5060:5060/tcp"
+      - "5060:5060/udp"
+      - "16384:16384/udp"
+      - "16385:16385/udp"
+      - "16386:16386/udp"
+      - "16387:16387/udp"
+      - "16388:16388/udp"
+      - "16389:16389/udp"
+      - "16390:16390/udp"
+      - "16391:16391/udp"
+      - "16392:16392/udp"
+      - "16393:16393/udp"
+      - "16394:16394/udp"
+    volumes:
+      - ./config/extensions.conf:/etc/asterisk/extensions.conf
+      - ./config/logger.conf:/etc/asterisk/logger.conf
+      - ./config/sip.conf:/etc/asterisk/sip.conf
+      - ./config/users.conf:/etc/asterisk/users.conf
+      - ./config/voicemail.conf:/etc/asterisk/voicemail.conf
+      - ./sounds:/var/lib/asterisk/moh
