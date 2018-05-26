@@ -1,11 +1,14 @@
 version: '2'
 services:
   mail:
-    image: tvial/docker-mailserver:latest
+    #image: tvial/docker-mailserver:latest
+    image: webmail
     hostname: ${HOSTNAME}
     domainname: ${DOMAINNAME}
     container_name: ${CONTAINER_NAME}
     ports:
+    - "80:80"
+    - "443:443"
     - "25:25"
     - "143:143"
     - "587:587"
